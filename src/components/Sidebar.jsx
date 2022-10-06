@@ -19,7 +19,8 @@ function Sidebar({
 
     if (localIndex) {
       const localIndexParsed = parseInt(JSON.parse(localIndex));
-      setActiveIndex(localIndexParsed);
+      const index = localIndexParsed == NaN ? 0 : localIndexParsed;
+      setActiveIndex(index);
     } else {
       localStorage.setItem("index", activeIndex);
     }
