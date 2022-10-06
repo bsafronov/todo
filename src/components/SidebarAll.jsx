@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function SidebarAll({ data, setListData, activeIndex, setActiveIndex }) {
   function showAllTasks() {
     setActiveIndex(-1);
     setListData(data);
   }
+
+  useEffect(() => {
+    if (activeIndex === -1) {
+      setListData(data);
+    }
+  }, [activeIndex]);
+
   return (
     <button
       className={`sidebar__btn-main ${activeIndex < 0 ? "active" : ""}`}

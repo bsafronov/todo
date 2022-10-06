@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SidebarAdd from "./SidebarAdd";
 import SidebarAll from "./SidebarAll";
 import SidebarList from "./SidebarList";
@@ -12,7 +12,22 @@ function Sidebar({
   tasks,
   setTasks,
 }) {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  useEffect(() => {
+    const localIndex = localStorage.getItem("index");
+
+    if (localIndex) {
+      const localIndexParsed = parseInt(JSON.parse(localIndex));
+      setActiveIndex(localIndexParsed);
+    } else {
+      localStorage.setItem("index", activeIndex);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("index", activeIndex);
+  }, [activeIndex]);
 
   return (
     <div className={`todo__sidebar ${isSidebarVisible ? "active" : ""}`}>

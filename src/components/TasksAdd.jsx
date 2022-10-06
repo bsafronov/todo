@@ -1,8 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function TasksAdd({ tasks, setTasks, listData }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    setIsFormVisible(false);
+  }, [listData]);
 
   function addTask() {
     if (!inputRef.current.value) {
