@@ -12,7 +12,7 @@ function Sidebar({
   tasks,
   setTasks,
 }) {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const localIndex = localStorage.getItem("index");

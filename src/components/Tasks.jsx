@@ -21,7 +21,6 @@ function Tasks({ db, listData, data, setData, tasks, setTasks }) {
   }, [tasks]);
 
   if (!listData) return null;
-
   return listData.length > 0 ? (
     <div className="todo__tasks column">
       {listData.map(item => {
