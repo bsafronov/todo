@@ -3,7 +3,6 @@ import React, { useRef, useState } from "react";
 function SidebarAdd({ db, data, setData, setActiveIndex }) {
   const [isAddBoxActive, setIsAddBoxActive] = useState(false);
   const [addColor, setAddColor] = useState("#C9D1D3");
-  const [listsCount, setListsCount] = useState(db.lists.length);
   const refInput = useRef(null);
 
   function addFolder() {
@@ -17,13 +16,12 @@ function SidebarAdd({ db, data, setData, setActiveIndex }) {
     setData([
       ...data,
       {
-        id: listsCount + 1,
+        id: Date.now(),
         name: name,
         color: addColor,
       },
     ]);
 
-    setListsCount(listsCount + 1);
     setActiveIndex(data.length);
     refInput.current.value = null;
     setIsAddBoxActive(false);

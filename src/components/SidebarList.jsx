@@ -41,7 +41,6 @@ function SidebarList({
     setTasks(newTasks);
 
     if (data.length - 1 === deletedItemIndex) {
-      console.log(deletedItemIndex);
       if (deletedItemIndex === 0) return;
       setActiveIndex(deletedItemIndex - 1);
     } else {

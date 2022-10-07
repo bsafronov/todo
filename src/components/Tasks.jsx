@@ -21,28 +21,27 @@ function Tasks({ db, listData, data, setData, tasks, setTasks }) {
   }, [tasks]);
 
   if (!listData) return null;
-  console.log(listData.length === 0);
 
-  if (listData.length > 0) {
+  if (listData.length > 0 && tasks.length > 0) {
     return (
       <div className="todo__tasks column">
         {listData.map(item => {
           const featuredTasks = tasks.filter(task => task.listId === item.id);
 
-          return (
-            featuredTasks.length > 0 && (
+          if (featuredTasks.length > 0) {
+            return (
               <div className="tasks__content column" key={item.id}>
                 <TasksTop data={data} setData={setData} listData={item} />
                 <TasksList tasks={tasks} setTasks={setTasks} listData={item} />
               </div>
-            )
-          );
+            );
+          }
         })}
       </div>
     );
   }
 
-  if (!(listData.length === 0)) {
+  if (!(listData instanceof Array)) {
     return (
       <div className="todo__tasks">
         <TasksTop data={data} setData={setData} listData={listData} />
@@ -54,11 +53,21 @@ function Tasks({ db, listData, data, setData, tasks, setTasks }) {
     );
   }
 
-  return (
-    <div className="todo__none">
-      <h1>Здесь ничего нет...</h1>
-    </div>
-  );
+  if (data.length === 0) {
+    return (
+      <div className="todo__none">
+        <h1>Здесь ничего нет...</h1>
+      </div>
+    );
+  }
+
+  if (tasks.length === 0) {
+    return (
+      <div className="todo__none">
+        <h1>Задачи отсутствуют...</h1>
+      </div>
+    );
+  }
 }
 
 export default Tasks;
