@@ -11,6 +11,7 @@ function Sidebar({
   isSidebarVisible,
   tasks,
   setTasks,
+  setIsSidebarVisible,
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -38,6 +39,7 @@ function Sidebar({
           setListData={setListData}
           activeIndex={activeIndex}
           setActiveIndex={setActiveIndex}
+          setIsSidebarVisible={setIsSidebarVisible}
         />
         <SidebarList
           db={db}
@@ -48,6 +50,7 @@ function Sidebar({
           setActiveIndex={setActiveIndex}
           tasks={tasks}
           setTasks={setTasks}
+          setIsSidebarVisible={setIsSidebarVisible}
         />
         <SidebarAdd
           db={db}

@@ -1,9 +1,16 @@
 import React, { useEffect } from "react";
 
-function SidebarAll({ data, setListData, activeIndex, setActiveIndex }) {
+function SidebarAll({
+  data,
+  setListData,
+  activeIndex,
+  setActiveIndex,
+  setIsSidebarVisible,
+}) {
   function showAllTasks() {
     setActiveIndex(-1);
     setListData(data);
+    setIsSidebarVisible(false);
   }
 
   useEffect(() => {

@@ -6,7 +6,7 @@ import DB from "./db.json";
 function App() {
   const [listData, setListData] = useState(null);
   const [data, setData] = useState([]);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ function App() {
         isSidebarVisible={isSidebarVisible}
         tasks={tasks}
         setTasks={setTasks}
+        setIsSidebarVisible={setIsSidebarVisible}
       />
       <Tasks
         db={DB}

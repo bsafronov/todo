@@ -9,6 +9,7 @@ function SidebarList({
   setActiveIndex,
   tasks,
   setTasks,
+  setIsSidebarVisible,
 }) {
   useEffect(() => {
     const localLists = localStorage.getItem("lists");
@@ -52,6 +53,11 @@ function SidebarList({
     return data.findIndex(item => item.id === id);
   }
 
+  function chooseFolder(id) {
+    setActiveIndex(indexById(id));
+    setIsSidebarVisible(false);
+  }
+
   return (
     <ul className="sidebar__list">
       {data.map(item => (
@@ -60,7 +66,7 @@ function SidebarList({
             className={`sidebar__btn ${
               indexById(item.id) === activeIndex ? "active" : ""
             }`}
-            onClick={() => setActiveIndex(indexById(item.id))}
+            onClick={() => chooseFolder(item.id)}
           >
             <div className="sidebar__btn-content">
               <span

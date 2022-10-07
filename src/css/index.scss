@@ -192,7 +192,7 @@ li {
   }
 
   &__btn-icon {
-    width: 10px;
+    min-width: 10px;
     height: 10px;
     border-radius: 50%;
   }
@@ -555,9 +555,11 @@ li {
   flex-direction: column;
   gap: 4px;
   position: absolute;
-  top: 40px;
+  top: 34px;
   right: 40px;
   z-index: 10;
+  padding: 5px;
+
   &:hover .burger__line {
     background-color: #767676;
   }
@@ -627,6 +629,9 @@ li {
     display: flex;
   }
   .todo {
+    &__tasks.column {
+      gap: 20px;
+    }
     &__sidebar {
       opacity: 0;
       pointer-events: none;
@@ -685,8 +690,33 @@ li {
       margin-bottom: 200px;
     }
   }
+  .tasks {
+    &__top {
+      gap: 5px;
+      margin-bottom: 30px;
+      max-width: 80%;
+      flex-direction: column;
+      font-size: 28px;
+      &::after {
+        bottom: -10px;
+      }
+    }
+    &__title {
+      font-size: 28px;
+      line-height: 34px;
+    }
+  }
   .tasks__title-change {
     min-width: 15px;
+    min-height: 18px;
+    &-input {
+      font-size: 28px;
+      line-height: 28px;
+    }
+
+    &-box.active {
+      gap: 5px;
+    }
     &-box {
       flex-direction: column;
     }
@@ -694,4 +724,87 @@ li {
 }
 
 @media (max-width: 480px) {
+  .todo__tasks.column {
+    gap: 10px;
+  }
+
+  .tasks {
+    &__title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+    &__top {
+      gap: 5px;
+      margin-bottom: 30px;
+      &::after {
+        bottom: -10px;
+      }
+    }
+  }
+
+  .tasks__title-change {
+    min-height: 18px;
+    &-input {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    &-box.active {
+      gap: 5px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .todo__sidebar {
+    border-radius: 20px;
+    left: 0;
+    width: 100%;
+  }
+  .tasks__title-change-input {
+    max-width: 190px;
+  }
+  .sidebar {
+    &__list {
+      padding: 14px 0;
+      width: 100%;
+      border-top: 4px solid #f1f1f1;
+      border-bottom: 4px solid #f1f1f1;
+    }
+
+    &__btn-main {
+      width: 100%;
+    }
+
+    &__btn-content {
+      width: 92%;
+    }
+
+    &__btn-add {
+      width: 92%;
+    }
+
+    &__btn-text {
+      max-width: 80%;
+      font-size: 16px;
+    }
+
+    &__btn {
+      width: 92%;
+    }
+    &__btn.active {
+      gap: 10px;
+    }
+
+    &__btn.active .sidebar__btn-text {
+      max-width: none;
+    }
+
+    &__add-form-box {
+      width: 90%;
+    }
+  }
+  .burger {
+    right: 14px;
+  }
 }
