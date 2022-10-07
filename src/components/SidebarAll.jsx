@@ -8,7 +8,6 @@ function SidebarAll({ data, setListData, activeIndex, setActiveIndex }) {
 
   useEffect(() => {
     if (activeIndex === -1) {
-      console.log(data);
       setListData(data);
     }
   }, [data]);

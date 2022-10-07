@@ -77,6 +77,17 @@ li {
     background-color: #f4f6f8;
     min-width: 200px;
   }
+
+  &__none {
+    flex-grow: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #9c9c9c;
+    font-weight: 700;
+  }
 }
 
 .sidebar {
