@@ -21,14 +21,9 @@
       "colorId": 2
     },
     {
-      "id": 5,
-      "name": "Личное",
-      "colorId": 1
-    },
-    {
       "name": "Спорт",
       "colorId": 3,
-      "id": 6
+      "id": 5
     }
   ],
   "tasks": [
@@ -47,7 +42,7 @@
     {
       "id": 3,
       "listId": 1,
-      "text": "Огурец",
+      "text": "Огурцы",
       "completed": true
     },
     {
@@ -65,7 +60,7 @@
     {
       "id": 6,
       "listId": 2,
-      "text": "Сделать домашку по математике",
+      "text": "Купить дом",
       "completed": false
     },
     {
@@ -99,34 +94,34 @@
       "completed": true
     },
     {
-      "id": 12,
-      "listId": 5,
-      "text": "Засунуть огурец в жопу",
-      "completed": true
-    },
-    {
-      "id": 13,
-      "listId": 5,
-      "text": "Подержать за ручку девочку, любую",
-      "completed": false
-    },
-    {
       "id": 14,
-      "listId": 6,
+      "listId": 5,
       "text": "Анжуманя",
       "completed": false
     },
     {
       "id": 15,
-      "listId": 6,
+      "listId": 5,
       "text": "Пресс качат",
       "completed": false
     },
     {
       "id": 16,
-      "listId": 6,
+      "listId": 5,
       "text": "Бегит",
       "completed": true
+    },
+    {
+      "id": 17,
+      "listId": 2,
+      "text": "Вырастить сына",
+      "completed": false
+    },
+    {
+      "id": 18,
+      "listId": 2,
+      "text": "Посадить дерево",
+      "completed": false
     }
   ],
   "colors": [

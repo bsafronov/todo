@@ -57,6 +57,7 @@ function Sidebar({
           data={data}
           setData={setData}
           setActiveIndex={setActiveIndex}
+          setIsSidebarVisible={setIsSidebarVisible}
         />
       </div>
     </div>

@@ -1,9 +1,33 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-function SidebarAdd({ db, data, setData, setActiveIndex }) {
+function SidebarAdd({
+  db,
+  data,
+  setData,
+  setActiveIndex,
+  setIsSidebarVisible,
+}) {
   const [isAddBoxActive, setIsAddBoxActive] = useState(false);
   const [addColor, setAddColor] = useState("#C9D1D3");
   const refInput = useRef(null);
+
+  useEffect(() => {
+    if (isAddBoxActive) {
+      const listener = event => {
+        if (event.code === "Enter" || event.code === "NumpadEnter") {
+          addFolder();
+        }
+        if (event.code === "Escape") {
+          setIsAddBoxActive(false);
+        }
+      };
+      document.addEventListener("keydown", listener);
+
+      return () => {
+        document.removeEventListener("keydown", listener);
+      };
+    }
+  }, [isAddBoxActive]);
 
   function addFolder() {
     let folderName = refInput.current.value;
@@ -25,6 +49,7 @@ function SidebarAdd({ db, data, setData, setActiveIndex }) {
     setActiveIndex(data.length);
     refInput.current.value = null;
     setIsAddBoxActive(false);
+    setIsSidebarVisible(false);
   }
 
   function openAddBox() {

@@ -6,9 +6,8 @@
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 html {
   background-color: #efefef;
@@ -213,6 +212,7 @@ li {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s;
+    z-index: 10;
   }
 
   &__add-form-box.active {
@@ -443,6 +443,7 @@ li {
 
   &__add-box {
     position: relative;
+    margin-bottom: 100px;
   }
 }
 
@@ -806,5 +807,17 @@ li {
   }
   .burger {
     right: 14px;
+  }
+  .todo__tasks {
+    padding: 30px 20px 20px 20px;
+  }
+
+  .tasks__add-form {
+    &-input {
+      width: 80%;
+    }
+  }
+  .tasks__add-form button {
+    padding: 12px 10px;
   }
 }

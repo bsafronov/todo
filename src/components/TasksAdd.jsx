@@ -5,6 +5,24 @@ function TasksAdd({ tasks, setTasks, listData }) {
   const inputRef = useRef(null);
 
   useEffect(() => {
+    if (isFormVisible) {
+      const listener = event => {
+        if (event.code === "Enter" || event.code === "NumpadEnter") {
+          addTask();
+        }
+        if (event.code === "Escape") {
+          setIsFormVisible(false);
+        }
+      };
+      document.addEventListener("keydown", listener);
+
+      return () => {
+        document.removeEventListener("keydown", listener);
+      };
+    }
+  }, [isFormVisible, tasks]);
+
+  useEffect(() => {
     setIsFormVisible(false);
   }, [listData]);
 
@@ -24,7 +42,7 @@ function TasksAdd({ tasks, setTasks, listData }) {
     ]);
 
     inputRef.current.value = null;
-    setIsFormVisible(false);
+    // setIsFormVisible(false);
   }
 
   function focusOnAdd() {
